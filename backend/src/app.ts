@@ -3,7 +3,7 @@ import helmet from 'helmet'
 import path from 'node:path'
 import cors from 'cors'
 import { healthController } from './controllers/health.js'
-const app = express.Router()
+const app = express()
 
 app.use(
   express.static(path.join(process.cwd(), "uploads"))
