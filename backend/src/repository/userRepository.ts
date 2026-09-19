@@ -19,5 +19,13 @@ export const userRepository = {
         return prisma.user.findUnique({
             where:{cpf}
         })
-    }
+    },
+    async findById(id:string){
+        return prisma.user.findFirst({
+            where:{id:id}
+        })
+    },
+    async list(){
+        return prisma.user.findMany({})
+    } 
 }

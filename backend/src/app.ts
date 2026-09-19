@@ -4,6 +4,7 @@ import path from 'node:path'
 import cors from 'cors'
 import { healthController } from './controllers/health.js'
 import users from './routes/userRouter.js'
+import { ErrorHandler } from './middleware/ErrorHandler.js'
 const app = express()
 
 app.use(
@@ -15,7 +16,10 @@ app.use(express.json())
 app.use(express.urlencoded({extended:true}))
 app.use(cors())
 
+
 app.get('/health', healthController )
 app.use('/', users)
+app.use(ErrorHandler)
+
 
 export default app

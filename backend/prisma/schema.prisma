@@ -14,15 +14,48 @@ enum Profile {
   ADMIN
   FAMILYADMIN
 }
+enum Status {
+  PAGO
+  PENDENTE
+}
+enum TipoConta {
+  FAMILIAR
+  INDIVIDUAL
+}
 
 model User{
    id String @db.VarChar(36) @id @default(uuid())
    name String
    cpf String @db.VarChar(11) @unique
    email String @unique
-   password String // não sei como definir hash ainda, não estudei isso
+   password String 
    photo String?
    profile Profile @default(MEMBER)
    createdAt DateTime @default(now())
    updatedAt DateTime @updatedAt
+   Transaction Transaction[]
+   @@map("Users")
+}
+
+model Transaction {
+  id String @db.VarChar(10) @id @default(uuid())
+  userId String
+  user User @relation(fields: [userId], references: [id])
+  categoryId String
+  category Category @relation(fields: [categoryId], references: [id])
+  valor Decimal
+  dtVencimento DateTime
+  parcelaAtual Int
+  totalParcelas Int
+  tipoConta TipoConta @default(INDIVIDUAL)
+  status Status @default(PENDENTE)
+  @@map("Transitions")
+}
+model Category {
+  id String @db.VarChar(10) @id @default(uuid())
+  descrition String
+  Transaction Transaction[]
+
+
+  @@map("Categories")
 }
