@@ -39,13 +39,15 @@ model User{
 
 model Transaction {
   id String @db.VarChar(10) @id @default(uuid())
+  name String
   userId String
   user User @relation(fields: [userId], references: [id])
   categoryId String
+  categoryName String
   category Category @relation(fields: [categoryId], references: [id])
   valor Decimal
   dtVencimento DateTime
-  parcelaAtual Int
+  parcelaAtual Int @default(1)
   totalParcelas Int
   tipoConta TipoConta @default(INDIVIDUAL)
   status Status @default(PENDENTE)
