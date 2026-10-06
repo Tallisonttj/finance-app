@@ -1,6 +1,6 @@
 import express from 'express'
-import { userControllers } from '../controllers/userControllers.js'
 import { privateRoute } from '../config/passport.js'
+import { userControllers } from '../controllers/userControllers.js'
 const router = express.Router()
 
 

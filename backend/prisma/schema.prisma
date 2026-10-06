@@ -38,26 +38,29 @@ model User{
 }
 
 model Transaction {
-  id String @db.VarChar(10) @id @default(uuid())
+  id String @db.VarChar(36) @id @default(uuid())
+  transactionGruopID String @db.VarChar(36)
   name String
   userId String
   user User @relation(fields: [userId], references: [id])
   categoryId String
-  categoryName String
   category Category @relation(fields: [categoryId], references: [id])
-  valor Decimal
-  dtVencimento DateTime
+  responsavelDivida String
+  total Decimal @db.Decimal(10,2)
+  valorParcela Decimal @db.Decimal(10,2)
+  dtVencimento DateTime 
   parcelaAtual Int @default(1)
   totalParcelas Int
   tipoConta TipoConta @default(INDIVIDUAL)
   status Status @default(PENDENTE)
+  createAt DateTime @default(now())
+  updateAt DateTime @updatedAt
   @@map("Transitions")
 }
 model Category {
-  id String @db.VarChar(10) @id @default(uuid())
-  descrition String
-  Transaction Transaction[]
-
+  id String @db.VarChar(36) @id @default(uuid())
+  descrition String @unique
+  Transactions Transaction[]
 
   @@map("Categories")
 }

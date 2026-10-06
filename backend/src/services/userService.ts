@@ -29,7 +29,7 @@ export const userService = {
      const token = generatedToken({id:newUser.id})
      console.log(token)
      return({
-       menssage:`Usuario criado com o e-mail ${newUser.email} e nome ${newUser.name} ${newUser.password}` ,
+       menssage:`Usuario criado com sucesso` ,
        token
      })
 

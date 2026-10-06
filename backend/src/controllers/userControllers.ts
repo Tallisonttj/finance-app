@@ -22,7 +22,6 @@ export const userControllers = {
   listUsers: async (req:Request, res:Response) => {
      
     const list = await userService.get()
-    console.log('User', req.user as object)
     return res.status(200).json(
       list
     )
