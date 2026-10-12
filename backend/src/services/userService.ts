@@ -1,15 +1,15 @@
 
 import { generatedToken } from "../config/passport.js";
 import AppError from "../error/AppError.js";
+import type { Prisma } from "../generated/prisma/client.js";
 import {createUserHash } from "../libs/hash.js";
 import { userRepository } from "../repository/userRepository.js";
-import type { CreateuUserDTO, LoginDTO } from "../schemas/userSchemas.js";
 
 
 
 export const userService = {
 
-    create: async (data:CreateuUserDTO) => {
+    create: async (data:Prisma.UserCreateInput) => {
      const existEmail = await userRepository.findByEmail(data.email)
      if (existEmail){
         throw new AppError('E-mail ja cadastrado', 409)

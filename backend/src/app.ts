@@ -6,6 +6,7 @@ import { healthController } from './controllers/health.js'
 import users from './routes/userRouter.js'
 import transactions from './routes/transactionRouter.js'
 import categorys from './routes/categoryRouter.js'
+import tasks from './routes/taskRouter.js'
 import { ErrorHandler } from './middleware/ErrorHandler.js'
 const app = express()
 
@@ -23,6 +24,7 @@ app.get('/health', healthController )
 app.use('/', users)
 app.use('/transaction',transactions )
 app.use('/category',categorys )
+app.use('/task',tasks )
 app.use(ErrorHandler)
 
 
