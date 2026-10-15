@@ -7,6 +7,7 @@ import users from './routes/userRouter.js'
 import transactions from './routes/transactionRouter.js'
 import categorys from './routes/categoryRouter.js'
 import tasks from './routes/taskRouter.js'
+import tasksHistory from './routes/taskHistoryRouter.js'
 import { ErrorHandler } from './middleware/ErrorHandler.js'
 const app = express()
 
@@ -20,11 +21,12 @@ app.use(express.urlencoded({extended:true}))
 app.use(cors())
 
 
-app.get('/health', healthController )
+app.get('/teste', healthController )
 app.use('/', users)
 app.use('/transaction',transactions )
 app.use('/category',categorys )
 app.use('/task',tasks )
+app.use('/taskHistory',tasksHistory )
 app.use(ErrorHandler)
 
 
