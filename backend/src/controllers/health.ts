@@ -1,24 +1,22 @@
 import {addMonths, setDate, startOfDay} from "date-fns"
 import type { Request, Response } from "express"
-export const healthController =  (req:Request, res:Response) => {
+import { taskRepository } from "../repository/taskRepository.js"
 
-    const dataAtual = new Date("2026-11-15")
+import { transactionRepository } from "../repository/transactionRepository.js"
+import { da } from "zod/v4/locales"
+export const healthController = async (req:Request, res:Response) => {
 
-    let pagamento = new Date(dataAtual)
+   const hoje = new Date()
+    hoje.setHours(0, 0, 0)
     
-    if(dataAtual.getDate() > 10 ){
-      const proximoMes = addMonths(dataAtual, 1)
-      const diaDez = setDate(proximoMes, 10)
-      pagamento = diaDez
-    }else{
-      pagamento = setDate(dataAtual, 10)
-    }
-    console.log((dataAtual))
-    console.log(startOfDay(pagamento))
-
+    const date7days = new Date(hoje)
+    date7days.setDate(hoje.getDate() + 1) 
+    const teste = new Date(date7days)
+   
    return res.status(200).json({
     status:'Ok',
     message: 'Api funcionando',
+    teste: teste,
     timestamp: new Date().toISOString()
    })
 

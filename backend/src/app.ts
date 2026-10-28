@@ -9,6 +9,7 @@ import categorys from './routes/categoryRouter.js'
 import tasks from './routes/taskRouter.js'
 import tasksHistory from './routes/taskHistoryRouter.js'
 import { ErrorHandler } from './middleware/ErrorHandler.js'
+import { iniciarCronJob } from './services/crowService.js'
 const app = express()
 
 app.use(
@@ -28,6 +29,7 @@ app.use('/category',categorys )
 app.use('/task',tasks )
 app.use('/taskHistory',tasksHistory )
 app.use(ErrorHandler)
+
 
 
 export default app
