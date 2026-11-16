@@ -6,7 +6,7 @@ export const userControllers = {
 
   createUser: async (req: Request, res: Response) => {
    
-      const body = createUserSchema.parse(req.body);
+      const body = await createUserSchema.parse(req.body);
       const user = await userService.create(body);
       res.status(201).json({
         user,

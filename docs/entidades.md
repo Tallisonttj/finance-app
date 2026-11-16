@@ -24,27 +24,7 @@
 - Perfil:
     - Membro
     - Administrador
-    - Administrador da Família
 
----
-
-## Família
-
-### Atributos
-
-| Campo | Tipo |
-|--------|------|
-| id | UUID |
-| nome | String |
-| codigo | String |
-| criadoEm | DateTime |
-
-### Regras
-
-- Código gerado automaticamente (UUID curto).
-- Somente administradores podem adicionar ou remover membros.
-
----
 
 ## Despesa
 
@@ -78,10 +58,6 @@ Status:
 - Pendente
 - Pago
 
-Tipo:
-
-- Fixa
-- Esporádica
 
 Caso seja parcelada:
 

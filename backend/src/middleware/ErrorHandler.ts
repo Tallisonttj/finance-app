@@ -12,7 +12,7 @@ export const ErrorHandler = (
 ) => {
   if (err instanceof AppError) {
     return res.status(err.statusCode).json({
-      mesagge: err.message,
+      message: err.message,
     });
   }
   if (err instanceof z.ZodError) {

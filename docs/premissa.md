@@ -68,9 +68,6 @@ Pode:
 | RF08 | Enviar lembretes de pagamento |
 | RF09 | Cadastrar faxina |
 | RF10 | Enviar lembrete de faxina |
-| RF11 | Criar família |
-| RF12 | Editar família |
-| RF13 | Excluir família |
 | RF14 | Cadastrar fonte de renda |
 | RF15 | Editar fonte de renda |
 | RF16 | Excluir fonte de renda |
@@ -104,9 +101,6 @@ Cada usuário possui um CPF único.
 Somente:
 
 - Administrador
-- Administrador da Família
-
-podem adicionar ou remover membros de uma família.
 
 ---
 
@@ -145,22 +139,13 @@ O lembrete de faxina deverá ser enviado na noite anterior à próxima faxina.
 O login poderá ser realizado utilizando:
 
 - E-mail
-- CPF
+
 
 ---
+
 
 ## RN08
-
-Um usuário poderá participar de várias famílias simultaneamente.
-
----
-
-## RN09
 
 Despesas familiares deverão ser divididas igualmente entre todos os membros ativos da família.
 
 ---
-
-## RN10
-
-Os membros da família nunca terão acesso às despesas individuais dos demais integrantes.

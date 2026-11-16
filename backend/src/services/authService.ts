@@ -31,7 +31,8 @@ login: async (data:LoginDTO) => {
      const token = generatedToken({id: user.id})
       return {
         status:true,
-        token
+        token,
+        user
       }
     }, 
   
