@@ -9,6 +9,18 @@ export const createUserSchema = z.object({
 
 export type CreateuUserDTO = z.infer<typeof createUserSchema>
 
+
+export const updateUserSchema = z.object({
+    name: z.string().optional(),
+    cpf:  z.string().length(11,'O item deve conter 11 digitos').optional(),
+    email: z.email({error: 'O item não é um e-mail valido'}).optional(),
+    password:z.string().optional(),
+    photo:z.file().optional(),
+    profile:z.enum(['MEMBER', 'ADMIN']).optional()
+})
+
+export type updateUserDTO = z.infer<typeof updateUserSchema>
+
 export const loginUserSchema = z.object({
     email: z.email({error: 'O item não é um e-mail valido'}),
     password:z.string()

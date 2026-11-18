@@ -31,8 +31,8 @@ login: async (data:LoginDTO) => {
      const token = generatedToken({id: user.id})
       return {
         status:true,
+        email:user.email,
         token,
-        user
       }
     }, 
   
